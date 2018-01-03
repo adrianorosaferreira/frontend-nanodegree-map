@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Adriano Ferreira">
+    <title>Floripa´s Map</title>
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template-->
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+
+  <body class="bg-dark" >
+    <div class="container-fluid">
+      <header class="nav fixed-top justify-content-center">
+        <h1>Discover Florianópolis</h1>
+      </header>
+
+      <section class="row content">
+        <aside class="sidebar col-xs-12 col-md-3">
+          <input class="filter-input" type="text" placeholder="Find the place" data-bind="value: filterCondition, valueUpdate: 'afterkeydown', event: {keyup: placeFilter}">
+          <hr>
+          <ul class="place-group" data-bind="foreach: places">
+            <li>
+              <button class="place btn btn-lg" type="button" data-bind="css: {active: selected}, text: title, click: $root.setSelected, visible: show"></button>
+            </li>
+          </ul>
+          <article data-bind="visible: errorMessage().length > 0" id="alert" class="alert alert-danger" >
+            <span id="error" data-bind="text: errorMessageTitle"></span>
+            <br />
+            <span id="error" data-bind="text: errorMessage"></span>
+          </article>
+        </aside>
+
+        <section class="col-xs-12 col-md-9">
+          <div id="map"></div>
+        </section>
+      </section>
+      <footer class="sticky-footer">
+        <section class="container text-center">
+          <small>Copyright ©BigOde Website 2017</small>
+        </section>
+      </footer>
+    </div>
+
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script async src="js/knockout.js"></script>
+    <script async src="js/main.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?libraries=places,geometry,drawing&key=AIzaSyAJ5SMDXgamUTMVCzEvzOJHglzkQ6TP3Tg&v=3&callback=initMap" onerror="googleError()" >
+    </script>
+
+  </body>
+
+</html>
