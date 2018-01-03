@@ -354,7 +354,7 @@ PlaceViewModel.prototype.fourSquareApi = function(pPlace) {
 	})
 	.fail(function(e) {
 		self.errorMessageTitle("Foursqurare api error:");
-		self.errorMessage("Por algum motivo nao foi possivel carregar os dados do Foursquare");
+		self.errorMessage("For some reason it was not possible to load Foursquare data");
 
 	});
 
